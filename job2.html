@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 题目5：2分钟后跳转到山东师范大学首页 -->
+    <meta http-equiv="refresh" content="120; url=https://www.sdnu.edu.cn/">
+    <title>黎_0425_job2</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            color: #2980b9;
+            border-left: 5px solid #3498db;
+            padding-left: 10px;
+            margin-top: 0;
+        }
+        
+        /* 题目2样式 - 已调整字号 */
+        .poem-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .poem {
+            width: 32%;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .poem-title {
+            font-family: "仿宋", FangSong, serif;
+            font-size: 18px; /* 从6px调整为18px */
+            color: #81D8D0; /* 蒂芙尼蓝 */
+            margin: 5px 0;
+            font-weight: bold;
+        }
+        .poem-author {
+            font-family: "隶书", LiSu, serif;
+            font-size: 16px; /* 从5px调整为16px */
+            color: #EC8136; /* 爱马仕橙 */
+            margin: 5px 0;
+        }
+        .poem-content {
+            font-family: "楷体", KaiTi, serif;
+            font-size: 16px; /* 从5px调整为16px */
+            color: #AE2423; /* 卡地亚红 */
+            line-height: 1.8;
+        }
+        
+        /* 题目3样式 */
+        .food-lists {
+            display: flex;
+            justify-content: space-between;
+        }
+        .food-list {
+            width: 32%;
+        }
+        .food-list h3 {
+            text-align: center;
+            color: #27ae60;
+            margin-top: 0;
+        }
+        .food-list ul {
+            padding-left: 20px;
+        }
+        
+        /* 题目4样式 */
+        .car-list {
+            margin-bottom: 20px;
+        }
+        .car-list h3 {
+            color: #8e44ad;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 题目1 -->
+    <div class="section">
+        <h2 class="section-title">题目1：世界500强企业</h2>
+        <h1>沃尔玛 (Walmart) 美国6120亿美元 行业零售</h1>
+        <h2>亚马逊 (Amazon) 美国5210亿美元 行业电商与科技</h2>
+        <h3>国家电网 (State Grid) 中国4870亿美元 行业公用事业</h3>
+        <h4>沙特阿美 (Saudi Aramco) 沙特阿拉伯4030亿美元 行业石油能源</h4>
+        <h5>中国石化 (Sinopec) 中国4010亿美元 行业石化能源</h5>
+        <h6>中国石油 (CNPC) 中国3950亿美元 行业石化能源</h6>
+    </div>
+    
+    <p></p> <!-- 换段标签 -->
+    
+    <!-- 题目2 -->
+    <div class="section">
+        <h2 class="section-title">题目2：山东诗人诗词</h2>
+        <div class="poem-container">
+            <!-- 第一首诗 -->
+            <div class="poem">
+                <div class="poem-title">《青玉案·元夕》</div>
+                <div class="poem-author">辛弃疾</div>
+                <div class="poem-content">
+                    东风夜放花千树，更吹落、星如雨。<br>
+                    宝马雕车香满路。凤箫声动，玉壶光转，一夜鱼龙舞。<br>
+                    蛾儿雪柳黄金缕，笑语盈盈暗香去。<br>
+                    众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。
+                </div>
+            </div>
+            
+            <!-- 第二首诗 -->
+            <div class="poem">
+                <div class="poem-title">《趵突泉》</div>
+                <div class="poem-author">李清照</div>
+                <div class="poem-content">
+                    泺水发源天下无，平地涌出白玉壶。<br>
+                    谷虚久恐元气泄，岁旱不愁东海枯。<br>
+                    云雾润蒸华不注，波涛声震大明湖。<br>
+                    时来泉上濯尘土，冰雪满怀清兴孤。
+                </div>
+            </div>
+            
+            <!-- 第三首诗 -->
+            <div class="poem">
+                <div class="poem-title">《登泰山》</div>
+                <div class="poem-author">辛弃疾</div>
+                <div class="poem-content">
+                    风云一举到天关，快意生平有此观。<br>
+                    万古齐州烟九点，五更沧海日三竿。<br>
+                    向来井处方知隘，今后巢居亦觉宽。<br>
+                    笑拍洪崖咏新作，满空笙鹤下高寒。
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <p></p> <!-- 换段标签 -->
+    
+    <!-- 题目3 -->
+    <div class="section">
+        <h2 class="section-title">题目3：秋天丰收的食物</h2>
+        <div class="food-lists">
+            <!-- 水果 -->
+            <div class="food-list">
+                <h3>水果 (square)</h3>
+                <ul style="list-style-type: square;">
+                    <li>苹果</li>
+                    <li>梨</li>
+                    <li>柿子</li>
+                    <li>石榴</li>
+                    <li>葡萄</li>
+                    <li>柚子</li>
+                    <li>猕猴桃</li>
+                    <li>枣</li>
+                </ul>
+            </div>
+            
+            <!-- 蔬菜 -->
+            <div class="food-list">
+                <h3>蔬菜 (disc)</h3>
+                <ul style="list-style-type: disc;">
+                    <li>南瓜</li>
+                    <li>红薯</li>
+                    <li>土豆</li>
+                    <li>胡萝卜</li>
+                    <li>大白菜</li>
+                    <li>萝卜</li>
+                    <li>莲藕</li>
+                    <li>山药</li>
+                </ul>
+            </div>
+            
+            <!-- 荤类食物 -->
+            <div class="food-list">
+                <h3>荤类食物 (circle)</h3>
+                <ul style="list-style-type: circle;">
+                    <li>大闸蟹</li>
+                    <li>草鱼</li>
+                    <li>鲤鱼</li>
+                    <li>羊肉</li>
+                    <li>牛肉</li>
+                    <li>鸡肉</li>
+                    <li>鸭肉</li>
+                    <li>猪肉</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <p></p> <!-- 换段标签 -->
+    
+    <!-- 题目4 -->
+    <div class="section">
+        <h2 class="section-title">题目4：汽车品牌价格排行</h2>
+        
+        <!-- 欧美系汽车 -->
+        <div class="car-list">
+            <h3>欧美系汽车 (数字标记)</h3>
+            <ol type="1">
+                <li>劳斯莱斯幻影 (约800万)</li>
+                <li>宾利慕尚 (约500万)</li>
+                <li>法拉利SF90 (约500万)</li>
+                <li>兰博基尼Aventador (约650万)</li>
+                <li>迈巴赫S级 (约300万)</li>
+                <li>保时捷911 (约150万)</li>
+                <li>奔驰S级 (约100万)</li>
+                <li>宝马7系 (约90万)</li>
+            </ol>
+        </div>
+        
+        <!-- 日韩系汽车 -->
+        <div class="car-list">
+            <h3>日韩系汽车 (大写字母标记)</h3>
+            <ol type="A">
+                <li>雷克萨斯LS (约100万)</li>
+                <li>讴歌NSX (约300万)</li>
+                <li>英菲尼迪Q70 (约60万)</li>
+                <li>丰田世纪 (约200万)</li>
+                <li>现代雅科仕 (约80万)</li>
+                <li>起亚K9 (约60万)</li>
+                <li>日产GT-R (约150万)</li>
+                <li>马自达RX-8 (约50万)</li>
+            </ol>
+        </div>
+        
+        <!-- 国产汽车 -->
+        <div class="car-list">
+            <h3>国产汽车 (大写罗马字母标记)</h3>
+            <ol type="I">
+                <li>红旗L5 (约600万)</li>
+                <li>蔚来EP9 (约1000万)</li>
+                <li>比亚迪汉 (约30万)</li>
+                <li>小鹏P7 (约30万)</li>
+                <li>理想ONE (约35万)</li>
+                <li>吉利星越 (约20万)</li>
+                <li>长城哈弗H9 (约25万)</li>
+                <li>奇瑞瑞虎8 (约15万)</li>
+            </ol>
+        </div>
+    </div>
+    
+    <!-- 题目5的meta标签已经在head部分添加 -->
+    
+    <script>
+        // 页面加载完成后显示提示信息
+        window.onload = function() {
+            setTimeout(function() {
+                alert("本页面将在2分钟后自动跳转到山东师范大学官网");
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
