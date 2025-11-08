@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福音钢琴社招新 - 音乐与梦想的交汇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .music-toggle {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .music-toggle:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        nav {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        h2 {
+            color: #6a11cb;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #6a11cb;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .back-to-top:hover {
+            background-color: #2575fc;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+        
+        .schedule-table th:first-child {
+            width: 20%;
+        }
+        
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .image-gallery img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .image-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        video {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        .form-table {
+            width: 100%;
+        }
+        
+        .form-table td {
+            padding: 10px;
+        }
+        
+        .form-table input[type="text"],
+        .form-table input[type="email"],
+        .form-table textarea,
+        .form-table select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .form-table textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .form-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .form-buttons input {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .submit-btn {
+            background-color: #6a11cb;
+            color: white;
+        }
+        
+        .reset-btn {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 5px 0;
+            }
+            
+            .image-gallery img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 背景音乐 -->
+    <audio id="bgMusic" loop>
+        <source src="piano_bg_music.mp3" type="audio/mpeg">
+        您的浏览器不支持音频元素。
+    </audio>
+
+    <header id="top">
+        <button class="music-toggle" onclick="toggleMusic()">♪</button>
+        <h1 class="logo">福音钢琴社</h1>
+        <p class="subtitle">音乐与梦想的交汇，指尖与琴键的对话</p>
+        <nav>
+            <ul>
+                <li><a href="#intro">社团简介</a></li>
+                <li><a href="#activities">活动安排</a></li>
+                <li><a href="#show">风采展示</a></li>
+                <li><a href="#stories">社员故事</a></li>
+                <li><a href="#signup">在线报名</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 社团简介 -->
+        <section id="intro">
+            <h2>社团简介</h2>
+            <p>福音钢琴社成立于1995年，是学校最具影响力的音乐类社团之一。我们致力于为钢琴爱好者提供一个交流学习、展示才华的平台。无论你是钢琴高手还是零基础的新手，只要你对钢琴有热情，都欢迎加入我们。</p>
+            <p>社团拥有专业的指导老师和丰富的教学资源，定期举办各类音乐活动、演出和比赛。我们相信音乐能够连接心灵，钢琴能够表达情感。在这里，你不仅可以提升钢琴技巧，还能结识志同道合的朋友，共同创造美好的音乐回忆。</p>
+            <p>我们的宗旨是"让每一个音符都有温度，让每一次演奏都充满情感"。钢琴社不仅是学习音乐的地方，更是培养艺术修养、提升个人气质的平台。我们期待你的加入，一起在黑白键上谱写青春的乐章。</p>
+            <p>社团设备齐全，拥有多台优质钢琴和电子琴，满足不同层次学员的需求。我们的活动形式多样，包括基础教学、进阶指导、大师讲座、合奏排练和定期演出等。无论你是想系统学习钢琴，还是希望找到音乐伙伴，钢琴社都能满足你的需求。</p>
+            <p>加入钢琴社，让我们一起在音乐的海洋中遨游，在琴键的世界里成长。音乐无界，梦想无限，钢琴社期待与你相遇！</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+
+        <!-- 活动安排 -->
+        <section id="activities">
+            <h2>活动安排</h2>
+            <p>本学期我们为大家准备了丰富多彩的活动，包括基础教学、进阶指导、音乐欣赏和演出机会等。具体安排如下：</p>
+            
+            <table class="schedule-table">
+                <tr>
+                    <th colspan="4">钢琴社 2025年春季学期活动安排表</th>
+                </tr>
+                <tr>
+                    <th>活动名称</th>
+                    <th>时间</th>
+                    <th>地点</th>
+                    <th>备注</th>
+                </tr>
+                <tr>
+                    <td>新成员见面会</td>
+                    <td>3月15日 14:00-16:00</td>
+                    <td rowspan="2">音乐楼301教室</td>
+                    <td>欢迎新成员，介绍社团情况</td>
+                </tr>
+                <tr>
+                    <td>钢琴基础教学公开课</td>
+                    <td>3月22日 14:00-16:00</td>
+                    <td>面向零基础学员</td>
+                </tr>
+                <tr>
+                    <td>中级技巧训练</td>
+                    <td>4月5日 14:00-16:00</td>
+                    <td>音乐楼302教室</td>
+                    <td>需具备基础钢琴知识</td>
+                </tr>
+                <tr>
+                    <td>经典曲目合奏排练</td>
+                    <td>4月19日 14:00-17:00</td>
+                    <td>音乐楼排练厅</td>
+                    <td>分组练习，培养团队协作</td>
+                </tr>
+                <tr>
+                    <td>音乐欣赏与交流</td>
+                    <td>5月10日 14:00-16:00</td>
+                    <td>音乐楼视听室</td>
+                    <td>分享喜爱的音乐作品</td>
+                </tr>
+                <tr>
+                    <td>春季音乐会排练</td>
+                    <td>5月24日 14:00-17:00</td>
+                    <td>音乐楼排练厅</td>
+                    <td>为期末演出做准备</td>
+                </tr>
+                <tr>
+                    <td>期末成果展示</td>
+                    <td>6月14日 18:00-20:00</td>
+                    <td>学校大礼堂</td>
+                    <td>面向全校师生演出</td>
+                </tr>
+            </table>
+            
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+
+        <!-- 风采展示 -->
+        <section id="show">
+            <h2>风采展示</h2>
+            <p>以下是钢琴社成员的日常练习和演出瞬间，展现了我们对音乐的热爱与执着：</p>
+            
+            <div class="image-gallery">
+                <a href="club_intro.html">
+                    <img src="piano_club_photo.jpg" alt="钢琴社日常演奏">
+                </a>
+                <!-- 可以添加更多图片 -->
+            </div>
+            
+            <p>点击图片了解更多关于我们的活动详情！</p>
+            
+            <h3>社团活动视频</h3>
+            <embed src="piano_club_video.mp4" width="100%" height="400">
+            
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+
+        <!-- 社员故事 -->
+        <section id="stories">
+            <h2>社员故事</h2>
+            <p>	钢琴社的排练室，向来是竞争最激烈的地方。</p>
+            <p>	周五傍晚，夕阳把琴盖照得像一片橘色的湖面。二年级真嗣抱着谱子冲进来时，发现那架老施坦威旁边已经坐了人——白发，校服外套搭在椅背，衬衫袖口挽到小臂，十指悬在键盘上方，像一对迟疑的候鸟。</p>
+            <p>	“呃……我预约了六点到六点半。”真嗣晃了晃手里的纸条。</p>
+            <p>	那人偏头，声音带着笑：“我知道。只是替你调一下踏板。昨晚低音区有点沉。”</p>
+            <p>	真嗣愣住。他当然认识这张脸——渚薰，传闻里“来无影去无踪”的三年级，据说能在三分钟内背完一首李斯特，却从不参加校内的比赛。有人猜他是艺术特长生，也有人说他只是来混学分。但此刻，薰正把踏板盒推回去，动作轻得像在合上某人的棺材板。</p>
+            <p>	“谢……谢谢。”真嗣放下谱子，是他自己改编的《欢乐颂》，准备下周月考用。</p>
+            <p>	薰没起身，反而往旁边挪了半凳：“一起？我正好在找一份四手联弹的谱子。”</p>
+            <p>	真嗣本想拒绝，可对方已经替他翻开了封面——那里空白处，不知被谁用铅笔写了一行小字：
+“For the last audience.”</p>
+            <p>	第一遍弹得磕磕绊绊。真嗣左手老抢拍，薰却像故意放慢半拍，用右手把他“拽”回节拍。弹到第三变奏，真嗣忽然发现不对劲：薰把主旋律全部移低了半音，原本明亮的C大调蒙上一层诡异的阴翳，像夕阳被云吃掉。</p>
+	    <p>	“这样改……老师会扣分吧？”真嗣小声问。</p>
+	    <p>	薰只是笑：“音乐本身没有对错，只有抵达哪里。”</p>
+	    <p>	“······”</p>
+            <a href="#top" class="back-to-top">返回顶部</a>
+        </section>
+
+        <!-- 在线报名 -->
+        <section id="signup">
+            <h2>在线报名</h2>
+            <p>欢迎加入钢琴社！请填写以下信息完成报名：</p>
+            
+            <form action="#" method="post">
+                <table class="form-table">
+                    <tr>
+                        <td width="30%">姓名：</td>
+                        <td><input type="text" name="name" required></td>
+                    </tr>
+                    <tr>
+                        <td>性别：</td>
+                        <td>
+                            <input type="radio" name="gender" value="male" id="male" required>
+                            <label for="male">男</label>
+                            <input type="radio" name="gender" value="female" id="female">
+                            <label for="female">女</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>出生日期：</td>
+                        <td>
+                            <input type="text" name="birth_year" placeholder="年" size="4" required> 年
+                            <input type="text" name="birth_month" placeholder="月" size="2" required> 月
+                            <input type="text" name="birth_day" placeholder="日" size="2" required> 日
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>手机：</td>
+                        <td><input type="text" name="phone" required></td>
+                    </tr>
+                    <tr>
+                        <td>邮箱：</td>
+                        <td><input type="email" name="email" required></td>
+                    </tr>
+                    <tr>
+                        <td>是否有钢琴基础：</td>
+                        <td>
+                            <input type="radio" name="experience" value="yes" id="exp_yes" required>
+                            <label for="exp_yes">有</label>
+                            <input type="radio" name="experience" value="no" id="exp_no">
+                            <label for="exp_no">无</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>兴趣方向：</td>
+                        <td>
+                            <input type="checkbox" name="interest[]" value="classical" id="classical">
+                            <label for="classical">古典音乐</label>
+                            <input type="checkbox" name="interest[]" value="pop" id="pop">
+                            <label for="pop">流行音乐</label>
+                            <input type="checkbox" name="interest[]" value="jazz" id="jazz">
+                            <label for="jazz">爵士乐</label>
+                            <input type="checkbox" name="interest[]" value="composition" id="composition">
+                            <label for="composition">作曲</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>年级：</td>
+                        <td>
+                            <select name="grade" required>
+                                <option value="">请选择</option>
+                                <option value="freshman">大一</option>
+                                <option value="sophomore">大二</option>
+                                <option value="junior">大三</option>
+                                <option value="senior">大四</option>
+                                <option value="graduate">研究生</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>自我介绍：</td>
+                        <td>
+                            <textarea name="introduction" placeholder="请简单介绍自己、以及加入钢琴社的理由......" required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>是否服从活动安排：</td>
+                        <td>
+                            <input type="radio" name="arrangement" value="yes" id="arr_yes" required>
+                            <label for="arr_yes">是</label>
+                            <input type="radio" name="arrangement" value="no" id="arr_no">
+                            <label for="arr_no">否</label>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="form-buttons">
+                    <input type="submit" value="提交" class="submit-btn">
+                    <input type="reset" value="重置" class="reset-btn">
+                </div>
+            </form>
+            
+            <a href="#top" class="back-top-top">返回顶部</a>
+        </section>
+    </div>
+
+    <footer>
+        <p>钢琴社 &copy; 2025 版权所有 黎子修</p>
+        <p>联系我们: piano_club@example.com | 电话: 123-456-7890</p>
+    </footer>
+
+    <script>
+        // 背景音乐控制
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const button = document.querySelector('.music-toggle');
+            
+            if (music.paused) {
+                music.play();
+                button.innerHTML = '♪';
+                button.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+            } else {
+                music.pause();
+                button.innerHTML = '♪';
+                button.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            }
+        }
+        
+        // 页面加载时自动播放音乐（需要用户交互，这里只是预加载）
+        window.addEventListener('load', function() {
+            const music = document.getElementById('bgMusic');
+            music.volume = 0.5; // 设置音量
+        });
+    </script>
+</body>
+</html>
