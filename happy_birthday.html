@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>祝房斯宇生日快乐！</title>
+    <style>
+        /* ==================== 
+           1. 基础页面设置 
+           ==================== */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at center, #2b1055, #7597de);
+            background-size: 400% 400%;
+            animation: bgAnim 15s ease infinite;
+            overflow: hidden; /* 防止弹幕撑开页面 */
+            font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+
+        @keyframes bgAnim {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* ==================== 
+           2. 中心区域 (文字 + 蛋糕)
+           ==================== */
+        .center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            pointer-events: none; /* 让点击穿透 */
+        }
+
+        .center-text h1 {
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #ff00de, 0 0 40px #ff00de;
+            margin: 10px 0 0 0;
+            animation: pulse 2s infinite;
+        }
+
+        .center-text p {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+            margin-top: 10px;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* ==================== 
+           3. 生日蛋糕样式 
+           ==================== */
+        .cake-container {
+            position: relative;
+            width: 200px;
+            height: 160px;
+            margin: 0 auto; /* 居中 */
+        }
+
+        .cake-layer {
+            position: absolute;
+            width: 100%;
+            border-radius: 10px 10px 5px 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .layer-bottom {
+            bottom: 0;
+            height: 50px;
+            background: #8e44ad;
+            width: 220px;
+            left: -10px;
+        }
+
+        .layer-middle {
+            bottom: 50px;
+            height: 45px;
+            background: #c0392b;
+            width: 210px;
+            left: -5px;
+        }
+
+        .layer-top {
+            bottom: 95px;
+            height: 45px;
+            background: #f1c40f;
+        }
+
+        /* 奶油装饰 */
+        .layer-top::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 15px;
+            background: radial-gradient(circle, #fff 40%, transparent 50%);
+            background-size: 20px 30px;
+            background-position: 0 -15px;
+        }
+
+        /* 蜡烛部分 */
+        .candles {
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .candle {
+            width: 10px;
+            height: 35px;
+            background: repeating-linear-gradient(45deg, #fff, #fff 5px, #ff9ff3 5px, #ff9ff3 10px);
+            position: relative;
+        }
+
+        /* 火焰动画 */
+        .flame {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 18px;
+            background: radial-gradient(ellipse at bottom, #f1c40f 0%, #e67e22 60%, #c0392b 100%);
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 10px #f1c40f, 0 0 20px #e67e22;
+            animation: flicker 0.8s infinite ease-in-out alternate;
+            transform-origin: center bottom;
+        }
+        
+        .candle:nth-child(2) .flame {
+            animation-delay: 0.2s;
+            animation-duration: 1s;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1) rotate(-2deg); opacity: 0.9; }
+            50% { transform: translateX(-50%) scale(1.1, 0.9) rotate(2deg); opacity: 1; }
+            100% { transform: translateX(-50%) scale(0.9, 1.1) rotate(-1deg); opacity: 0.8; }
+        }
+
+        /* ==================== 
+           4. 弹幕样式 
+           ==================== */
+        .danmaku {
+            position: absolute;
+            white-space: nowrap;
+            font-weight: bold;
+            opacity: 0.9;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            will-change: transform;
+            user-select: none;
+        }
+
+        @keyframes moveLeft {
+            from { transform: translateX(100vw); }
+            to { transform: translateX(-100%); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="center-text">
+        <div class="cake-container">
+            <div class="cake-layer layer-bottom"></div>
+            <div class="cake-layer layer-middle"></div>
+            <div class="cake-layer layer-top"></div>
+            <div class="candles">
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
+                <div class="candle"><div class="flame"></div></div>
+            </div>
+        </div>
+        <h1>HAPPY BIRTHDAY</h1>
+        <p>祝房斯宇生日快乐！</p>
+    </div>
+
+    <script>
+        // 祝福语库 (已修复逗号问题)
+        const wishes = [
+            { text: "岁岁平安 🍎", color: "#FF6B6B" }, 
+            { text: "生日快乐！🎂", color: "#FFD93D" }, 
+            { text: "前程似锦 🌟", color: "#4D96FF" }, 
+            { text: "百事可乐 🥤", color: "#FF4D4D" }, 
+            { text: "万事胜意 🌈", color: "#6BCB77" }, 
+            { text: "早日暴富 💰", color: "#FFAF40" }, 
+            { text: "长生不老 🐢", color: "#18DCFF" }, // 注意这个逗号，之前缺失导致错误
+            { text: "顺颂时祺 🎐", color: "#E056FD" }, 
+            { text: "万般皆宜 👌", color: "#F0932B" }, 
+            { text: "好运爆棚 💥", color: "#FF3F34" }, 
+            { text: "肝啥都成 🏆", color: "#F1C40F" }, 
+            { text: "烦恼退散 💨", color: "#7EFFF5" }, 
+            { text: "云程发轫 🚀", color: "#A29BFE" }
+        ];
+
+        function createDanmaku() {
+            const span = document.createElement('span');
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            
+            span.innerText = randomWish.text;
+            span.className = 'danmaku';
+
+            // 随机样式
+            const size = Math.floor(Math.random() * 30) + 20;
+            span.style.fontSize = size + 'px';
+            
+            span.style.color = randomWish.color;
+            span.style.textShadow = `0 0 10px ${randomWish.color}`;
+
+            const topPos = Math.floor(Math.random() * 95);
+            span.style.top = topPos + 'vh';
+
+            const duration = Math.floor(Math.random() * 10) + 5;
+            span.style.animation = `moveLeft ${duration}s linear forwards`;
+
+            span.style.zIndex = Math.floor(Math.random() * 5);
+
+            document.body.appendChild(span);
+
+            // 自动清理
+            setTimeout(() => {
+                span.remove();
+            }, duration * 1000);
+        }
+
+        // 启动逻辑
+        for(let i=0; i<10; i++){
+            setTimeout(createDanmaku, i * 200);
+        }
+
+        setInterval(createDanmaku, 400);
+
+    </script>
+</body>
+</html>
